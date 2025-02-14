@@ -1,4 +1,3 @@
-
 # Immidee Watch Party Project
 
 This project is a **collaborative Watch Party app**, allowing users to watch YouTube videos together in sync. The frontend is written in **TypeScript**, and we implemented robust **unit tests** using **Jest**.
@@ -50,11 +49,23 @@ npm run dev
 npm test
 ```
 
+### **5. Run End-to-End (E2E) Tests with Playwright**
+
+```sh
+npx playwright test
+```
+
+To run a specific test file:
+
+```sh
+npx playwright test tests/e2e/playVideo.test.ts
+```
+
 ---
 
 ## Implemented Unit Tests
 
-We developed comprehensive **unit tests using Jest**, ensuring key functionalities work as expected.
+End-to-End (E2E) tests were developed using Playwright to ensure the full workflow is functioning correctly
 
 ### **Tested Functions**
 
@@ -68,6 +79,23 @@ We developed comprehensive **unit tests using Jest**, ensuring key functionaliti
 | `pauseVideo`  | Pause the video playback        | ✅ Completed |
 | `stopVideo`   | Stop and reset video playback   | ✅ Completed |
 | `removeVideo` | Remove a video from the session | ✅ Completed |
+
+---
+
+## Implemented End-to-End (E2E) Tests
+
+It was developed **E2E tests using Playwright**, ensuring the full workflow is functioning correctly.
+
+### **Tested Features**
+
+| Test Case                 | Purpose                                      | Status      |
+| -------------------------- | -------------------------------------------- | ----------- |
+| `addVideo.test.ts`        | Ensure a video can be added successfully     | ✅ Completed |
+| `addMultipleVideos.test.ts` | Verify multiple videos can be added         | ✅ Completed |
+| `playVideo.test.ts`       | Validate video play functionality           | ✅ Completed |
+| `pauseVideo.test.ts`      | Validate video pause functionality          | ✅ Completed |
+| `removeVideo.test.ts`     | Ensure a video can be removed successfully  | ✅ Completed |
+| `auth.test.ts`           | Verify homepage loads correctly              | ✅ Completed |
 
 ---
 
@@ -99,7 +127,18 @@ We developed comprehensive **unit tests using Jest**, ensuring key functionaliti
 
 ## ⚠️ **Frontend Structure Note**
 
-We did not modify the frontend route structure since it was already well-structured and supported the required functionalities without changes. The existing setup efficiently handled navigation and state management, allowing us to focus on backend logic and testing. The main components remain in `./routes/_index.tsx` as per the original setup.
+We did not modify the frontend route structure since it was already well-structured and supported the required functionalities without changes. The existing setup efficiently handled navigation and state management, allowing us to focus on backend logic and testing. The main components remain in `./routes/_index.tsx` as per the original setup. We only added `data-testid` attributes to facilitate test automation.
 
 ---
+
+## 🚨 **Known Issues & Bug Reports**
+
+We have identified an issue and it has been logged for further investigation:
+
+- **Bug:** When adding a video and switching to another browser tab for a few minutes, the UI becomes broken upon returning.
+- **Status:** Open
+- **Affected Component:** Video playback UI
+- **Reported on:** `docs/bug-reports/ui-breaks-after-tab-switch.md`
+
+
 

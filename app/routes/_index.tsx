@@ -169,7 +169,7 @@ export default function Index() {
 
   return (
     <div className="container mx-auto root">
-      <h1 className="text-6xl font-thin text-slate-300 py-12">Watch Party</h1>
+      <h1 data-testid="page-title" className="text-6xl font-thin text-slate-300 py-12">Watch Party</h1>
       <div className="flex items-center w-full">
         <div className="flex-none flex flex-col w-full gap-4">
           <form onSubmit={handleAddUrl}>
@@ -186,6 +186,7 @@ export default function Index() {
               <div className="w-full outline-none text-slate-700 rounded px-2 shadow-inner h-8 bg-white flex items-center">
                 <input
                   name="rid"
+                  data-testid="youtube-url"
                   value={url}
                   onChange={(e) => setUrl(e.target.value)}
                   placeholder="Add a youtube URL to watch with your friends"
@@ -194,6 +195,7 @@ export default function Index() {
               </div>
               <button
                 type="submit"
+                data-testid="create-session"
                 className="flex-none w-8 h-8 flex items-center justify-center hover:bg-red-600 rounded"
               >
                 <Icon icon="mdi:add-circle" style={{ fontSize: 24 }} />
@@ -206,15 +208,15 @@ export default function Index() {
               "bg-slate-200 shadow-inner": !videos.length,
             })}
           >
-            <div className="flex-none w-96 flex flex-col">
+            <div data-testid="video-list" className="flex-none w-96 flex flex-col">
               {videos.map((video) => (
                 <button
+                  data-testid={`video-item-${video.id}`}
                   key={video.id}
-                  className={`cursor-pointer h-9 p-1 pl-2 w-full flex gap-2 items-center text-white rounded justify-between ${
-                    video.id === room?.vid
-                      ? "border-neutral-600 bg-red-500 hover:bg-red-600"
-                      : "border-transparent bg-transparent"
-                  }`}
+                  className={`cursor-pointer h-9 p-1 pl-2 w-full flex gap-2 items-center text-white rounded justify-between ${video.id === room?.vid
+                    ? "border-neutral-600 bg-red-500 hover:bg-red-600"
+                    : "border-transparent bg-transparent"
+                    }`}
                   onClick={() => handleStartVideo(video.id)}
                 >
                   <div className="w-full text-left truncate font-light text-sm">
@@ -270,6 +272,7 @@ export default function Index() {
                   <div className="absolute w-full h-full top-0 left-0 flex justify-center items-center">
                     {!room?.playing && (
                       <Button
+                        data-testid="play-video"
                         className="w-24 h-24 rounded-full text-white"
                         onClick={() => handleStartVideo(currentVideo.id)}
                       >
@@ -277,6 +280,7 @@ export default function Index() {
                       </Button>
                     )}
                     <Button
+                      data-testid={`remove-video-${currentVideo.id}`}
                       className="absolute top-4 right-4 transition-opacity opacity-0 group-hover:opacity-100 flex items-center justify-center w-12 h-12 bg-neutral-800 hover:bg-neutral-900 cursor-pointer text-white rounded"
                       onClick={() => handleVideoDelete(currentVideo.id)}
                       title="Remove video from the playlist"
@@ -291,6 +295,7 @@ export default function Index() {
                         from="mdi:pause-circle-filled"
                         to="mdi:play-circle-filled"
                         size={24}
+                        data-testid={room?.playing ? "pause-video" : "play-video"}
                       />
                       <div className="w-full h-5">
                         {duration && (
