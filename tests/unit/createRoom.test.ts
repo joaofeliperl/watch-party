@@ -17,7 +17,7 @@ jest.mock("firebase/firestore", () => {
         addDoc: jest.fn(),
         collection: jest.fn(),
         doc: jest.fn(),
-        serverTimestamp: jest.fn(() => new Date("2025-02-12T00:00:00Z")), // Returns a valid timestamp
+        serverTimestamp: jest.fn(() => new Date("2025-02-12T00:00:00Z")),
     };
 });
 

@@ -22,6 +22,5 @@ test("should play a paused video successfully", async ({ page }) => {
     await homePage.playVideo();
     await page.waitForTimeout(5000);
 
-
     await expect(await homePage.isPlayButtonVisible()).toBeFalsy();
 });

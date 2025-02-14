@@ -16,7 +16,7 @@ jest.mock("firebase/firestore", () => {
 describe("Firebase - seekVideo", () => {
     it("should update the video seek time", async () => {
         const mockRoomId = "abc123";
-        const mockTime = 120; // 2 minutes
+        const mockTime = 120;
 
         await seekVideo(mockRoomId, mockTime);
 

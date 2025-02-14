@@ -15,7 +15,7 @@ jest.mock("firebase/firestore", () => {
 describe("Firebase - pauseVideo", () => {
     it("should pause the video in the room", async () => {
         const mockRoomId = "abc123";
-        const mockTime = 75; // 1 minute 15 seconds
+        const mockTime = 75;
 
         await pauseVideo(mockRoomId, mockTime);
 
