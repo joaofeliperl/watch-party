@@ -65,7 +65,7 @@ npx playwright test tests/e2e/playVideo.test.ts
 
 ## Implemented Unit Tests
 
-End-to-End (E2E) tests were developed using Playwright to ensure the full workflow is functioning correctly
+Unit Tests were developed using Jest to ensure the full workflow is functioning correctly
 
 ### **Tested Functions**
 
@@ -84,7 +84,7 @@ End-to-End (E2E) tests were developed using Playwright to ensure the full workfl
 
 ## Implemented End-to-End (E2E) Tests
 
-It was developed **E2E tests using Playwright**, ensuring the full workflow is functioning correctly.
+End-to-End (E2E) tests were developed using Playwright to ensure the full workflow is functioning correctly
 
 ### **Tested Features**
 
@@ -103,7 +103,7 @@ It was developed **E2E tests using Playwright**, ensuring the full workflow is f
 
 ### 1️ **How do we ensure accurate synchronization when a new user joins?**
 
-- We store **currentTime** and **startedAt** in Firestore.
+- I store **currentTime** and **startedAt** in Firestore.
 - When a new user joins, they retrieve the current playback state.
 - If the video is playing, we calculate the exact position using **serverTimestamp()**.
 
@@ -127,13 +127,14 @@ It was developed **E2E tests using Playwright**, ensuring the full workflow is f
 
 ## ⚠️ **Frontend Structure Note**
 
-We did not modify the frontend route structure since it was already well-structured and supported the required functionalities without changes. The existing setup efficiently handled navigation and state management, allowing us to focus on backend logic and testing. The main components remain in `./routes/_index.tsx` as per the original setup. We only added `data-testid` attributes to facilitate test automation.
+I did not modify the frontend route structure since it was already well-structured and supported the required functionalities without changes. The existing setup efficiently handled navigation and state management, allowing me to focus on backend logic and testing. The main components remain in `./routes/_index.tsx` as per the original setup. I only added `data-testid` attributes to facilitate test automation.
+
 
 ---
 
 ## 🚨 **Known Issues & Bug Reports**
 
-We have identified an issue and it has been logged for further investigation:
+I have identified an issue and logged it for further investigation:
 
 - **Bug:** When adding a video and switching to another browser tab for a few minutes, the UI becomes broken upon returning.
 - **Status:** Open
